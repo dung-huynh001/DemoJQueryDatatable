@@ -140,55 +140,55 @@
     </Compile>
     <Compile Include="Models\AppoimentIO.cs" />
     <Compile Include="Models\DB\APPOINTMENT.cs">
-      <DependentUpon>_DBContextModel.tt</DependentUpon>
+      <DependentUpon>DBContextModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DB\APPOINTMENT_NOTE.cs">
-      <DependentUpon>_DBContextModel.tt</DependentUpon>
+      <DependentUpon>DBContextModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DB\CONSULTANT_TYPE.cs">
-      <DependentUpon>_DBContextModel.tt</DependentUpon>
+      <DependentUpon>DBContextModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DB\DEPARTMENT.cs">
-      <DependentUpon>_DBContextModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DB\DOCTOR.cs">
-      <DependentUpon>_DBContextModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DB\MODE_OF_CONSULTING.cs">
-      <DependentUpon>_DBContextModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DB\PATIENT.cs">
-      <DependentUpon>_DBContextModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DB\PRESCRIPTION.cs">
-      <DependentUpon>_DBContextModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DB\QUALIFICATION.cs">
-      <DependentUpon>_DBContextModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DB\ROLE.cs">
-      <DependentUpon>_DBContextModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DB\SCHEDULE.cs">
-      <DependentUpon>_DBContextModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DB\USER.cs">
-      <DependentUpon>_DBContextModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DB\_DBContextModel.Context.cs">
+    <Compile Include="Models\DB\DBContextModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>_DBContextModel.Context.tt</DependentUpon>
+      <DependentUpon>DBContextModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DB\_DBContextModel.cs">
+    <Compile Include="Models\DB\DBContextModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>_DBContextModel.tt</DependentUpon>
+      <DependentUpon>DBContextModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DB\DBContextModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DBContextModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB\DEPARTMENT.cs">
+      <DependentUpon>DBContextModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB\DOCTOR.cs">
+      <DependentUpon>DBContextModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB\MODE_OF_CONSULTING.cs">
+      <DependentUpon>DBContextModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB\PATIENT.cs">
+      <DependentUpon>DBContextModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB\PRESCRIPTION.cs">
+      <DependentUpon>DBContextModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB\QUALIFICATION.cs">
+      <DependentUpon>DBContextModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB\ROLE.cs">
+      <DependentUpon>DBContextModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB\SCHEDULE.cs">
+      <DependentUpon>DBContextModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB\USER.cs">
+      <DependentUpon>DBContextModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DepartmentIO.cs" />
     <Compile Include="Models\DoctorIO.cs" />
@@ -215,21 +215,22 @@
     <Content Include="images\sort_both.png" />
     <Content Include="images\sort_desc.png" />
     <Content Include="images\sort_desc_disabled.png" />
-    <Content Include="Models\DB\_DBContextModel.Context.tt">
+    <Content Include="Models\DB\DBContextModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>_DBContextModel.Context.cs</LastGenOutput>
       <DependentUpon>DBContextModel.edmx</DependentUpon>
+      <LastGenOutput>DBContextModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\DB\_DBContextModel.tt">
+    <Content Include="Models\DB\DBContextModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DBContextModel.edmx</DependentUpon>
-      <LastGenOutput>_DBContextModel.cs</LastGenOutput>
+      <LastGenOutput>DBContextModel.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\dataTables.bootstrap.js" />
+    <Content Include="Scripts\department.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />

@@ -3,6 +3,7 @@ using DemoJQueryDatatable.Models.DB;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
 
@@ -26,8 +27,29 @@ namespace DemoJQueryDatatable.Controllers
         [HttpPost]
         public ActionResult Create(string name)
         {
-            db.AddDepartment(name);           
-            return Json(new { success = true, message = "Create a new Department successfully!" });
+            name = name.Trim();
+            string patternName = @"^[\p{L}\p{N}\s]*$";
+            if (String.IsNullOrEmpty(name))
+            {
+                return Json(new { success = false, message = "Department name cannot null!" });
+            }
+            else
+            {
+                Match valid = Regex.Match(name, patternName, RegexOptions.IgnoreCase);
+                if (!valid.Success)
+                {
+                    return Json(new { success = false, message = "Department name is wrong format!" });
+                }
+                else
+                {
+                    if (name.Length > 256)
+                    {
+                        return Json(new { success = false, message = "Department name cannot be more than 256 charaters!" });
+                    }
+                    db.AddDepartment(name);
+                    return Json(new { success = true, message = "Create a new Department successfully!" });
+                }
+            }  
         }
         
         public ActionResult Edit(string idEdit)
@@ -47,7 +69,7 @@ namespace DemoJQueryDatatable.Controllers
         public ActionResult Delete(string id)
         {
             db.DeleteDepartment(id);
-            return Json(new { success = true, message = "Delete the Department successfully! " + id });
+            return Json(new { success = true, message = "Delete the Department successfully! " });
         }
     }
 }

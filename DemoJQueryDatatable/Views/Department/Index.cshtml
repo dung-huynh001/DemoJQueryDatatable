@@ -26,14 +26,14 @@
 
 <!-- Form create and edit a new departmet -->
 <div id="create-department" class="container" hidden="hidden">
-    <h2 id="departmentAction"></h2>
+    <h2 id="departmentTitleAction"></h2>
     <form id="form-create">
         <div class="form-group">
             <label for="txtDepartmentName">Department Name</label>
             <input type="text" class="form-control" id="txtDepartmentName" placeholder="Enter name of Department">
         </div>
         <input type="button" id="btn-cancel" class="btn btn-danger btn-sm" value="Cancel" />
-        <input type="button" id="btn-save" class="btn btn-success btn-sm" value="Save" />
+        <input type="button" id="btn-save" class="btn btn-success btn-sm" value="Save" data-toggle="modal" data-target="#messageModal" />
     </form>
     <script type="text/javascript">
 
@@ -45,7 +45,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="ModalDeleteLabel">Delete</h5>
+                <h5 class="modal-title" id="ModalDeleteLabel">DELETE DEPARTMENT</h5>
             </div>
             <div class="modal-body">
                 Bạn chắc chắn muốn xóa?
@@ -58,17 +58,43 @@
     </div>
 </div>
 
+<!--Message Modal -->
+<div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="messageModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="messageModalLabel">Title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p id="messageContent">Message</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 @section scripts{
     <script type="text/javascript">
 
         var typeOfAction = null;
 
-        /*Add a new department*/
+        /*Handle event click Save button*/
         $(document).ready(function () {
             $('#btn-save').click(function () {
                 var DEPARTMENTNAME = $('#txtDepartmentName').val();
-                if (DEPARTMENTNAME === '') {
-                    alert('Vui lòng nhập tên phòng ban!');
+                var resultMessage = '';
+                if (DEPARTMENTNAME.trim() === '') {
+                    resultMessage = 'Department name cannot null!'
+                    $('#messageContent').text(resultMessage);
+                    //alert(resultMessage);
+                } else if (DEPARTMENTNAME.length > 256){
+                    resultMessage = 'Department name cannot be more than 256 charaters!';
+                    $('#messageContent').text(resultMessage);
                 }else{
                     if (typeOfAction === 'Create') {
                         $.ajax({
@@ -78,19 +104,24 @@
                             datatype: 'JSON',
                             encode: true,
                             success: function (result) {
+                                resultMessage = result.message;
                                 if (result.success) {
-                                    alert(result.message);
+                                    $('#messageContent').text(resultMessage);
+                                    //alert(resultMessage);
                                     $("#create-department").hide();
                                     $('#form-create').trigger('reset');
-                                    $('#modal-delete-department').trigger('reset');
+                                    //$('#modal-delete-department').trigger('reset');
                                     loadData();
                                     $("#department-container").show();
                                 } else {
-                                    alert('Thêm dữ liệu thất bại!');
+                                    $('#messageContent').text(resultMessage);
+                                    //alert(result.message);
                                 }
                             },
                             error: function () {
-                                alert('Đã xảy ra lỗi!');
+                                resultMessage = 'Cannot connect to Server!'
+                                //alert(resultMessage);
+                                $('#messageContent').text(resultMessage);
                             }
                         });
                     } else {
@@ -102,15 +133,18 @@
                             datatype: 'JSON',
                             encode: true,
                             success: function (result) {
+                                resultMessage = result.message
                                 if (result.success) {
-                                    alert(result.message);
+                                    //alert(resultMessage);
+                                    $('#messageContent').text(resultMessage);
                                     $("#create-department").hide();
                                     $('#form-create').trigger('reset');
-                                    $('#modal-delete-department').trigger('reset');
+                                    //$('#modal-delete-department').trigger('reset');
                                     loadData();
                                     $("#department-container").show();
                                 } else {
-                                    alert('Thêm dữ liệu thất bại!');
+                                    //alert(resultMessage);
+                                    $('#messageContent').text(resultMessage);
                                 }
                             },
                         })
@@ -120,18 +154,20 @@
         });
 
 
-        /*Edit the Department*/
+        /*Get Department's info display on Edit form to edit*/
         var idEdit = 0;
         $(document).on('click', '.btn-edit-department', function () {
+            typeOfAction = 'Update';
             var btnEdit = $(this);
             idEdit = btnEdit.data('id');
+            $('#messageModalLabel').text('Update Message');
             if (idEdit == 0) {
                 alert('404 Not found!');
             } else {
-                alert('Edit ' + idEdit);
                 $("#department-container").hide();
                 $("#create-department").removeAttr("hidden");
                 $("#create-department").show();
+                $('#departmentTitleAction').text('Update Department');
                 $.ajax({
                     url: '@Url.Action("Edit", "Department")',
                     type: 'GET',
@@ -156,25 +192,24 @@
         $(document).on('click', '.btn-delete-department', function () {
             var btnDelete = $(this);
             id = btnDelete.data('id');
-            alert('Delete ' + id)
         })
 
         $("#btn-valid-delete").click(function () {
-                $.ajax({
-                    url: '@Url.Action("Delete", "Department")',
-                    type: 'POST',
-                    data: { id: id },
-                    datatype: 'JSON',
-                    encode: true,
-                    success: function (result) {
-                        loadData();
-                        alert(result.message);
-                    },
-                    error: function () {
-                        alert('Xóa xảy ra lỗi!')
-                    }
-                });
+            $.ajax({
+                url: '@Url.Action("Delete", "Department")',
+                type: 'POST',
+                data: { id: id },
+                datatype: 'JSON',
+                encode: true,
+                success: function (result) {
+                    loadData();
+                    //alert(result.message);
+                },
+                error: function () {
+                    alert('Xóa xảy ra lỗi!')
+                }
             });
+        });
 
 
 
@@ -228,7 +263,7 @@
                     "autoWidth": true,
                     "searchable": true,
                     "render": function (data, type) {
-                        return type === 'display' ? '<div class="container d-inline-flex"><a data-id="' + data + '" class="btn btn-primary btn-m btn-edit-department" role="button" @*href="@Url.Action("Edit")"*@> Edit </a> <a data-id="' + data + '" class="btn-delete-department btn btn-danger btn-m ml-1" role="button" href="@Url.Action("Delete")" data-toggle="modal" data-target="#modal-delete-department"> Delete </a></div>' : data;
+                        return type === 'display' ? '<div class="container d-inline-flex"><a data-id="' + data + '" class="btn btn-primary text-light btn-m btn-edit-department" role="button"> Edit </a> <a data-id="' + data + '" class="btn-delete-department btn btn-danger btn-m ml-1" role="button" href="@Url.Action("Delete")" data-toggle="modal" data-target="#modal-delete-department"> Delete </a></div>' : data;
                     }
                 },
             ]
@@ -250,6 +285,8 @@
         /*Processing when Create New Button is clicked*/
         $('#btn-add-department').click(function () {
             typeOfAction = 'Create';
+            $('#messageModalLabel').text('Create Message');
+            $('#departmentTitleAction').text('Create Department');
             $("#department-container").hide();
             $("#create-department").removeAttr("hidden");
             $("#create-department").show();
@@ -259,6 +296,7 @@
         $('#btn-cancel').click(function () {
             loadData();
             $("#department-container").show();
+            $('#form-create').trigger('reset');
             $("#create-department").hide();
         });
     </script>

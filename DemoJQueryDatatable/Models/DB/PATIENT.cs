@@ -11,8 +11,7 @@ namespace DemoJQueryDatatable.Models.DB
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class PATIENT
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,43 +19,19 @@ namespace DemoJQueryDatatable.Models.DB
         {
             this.APPOINTMENTs = new HashSet<APPOINTMENT>();
         }
-        
-        [Display(Name = "ID")]
+    
         public int PATIENTID { get; set; }
-
-
         public int USERID { get; set; }
-
-        [Display(Name = "Name")]
         public string PATIENTNAME { get; set; }
-
-        [Display(Name = "National ID")]
         public string PATIENTNATIONALID { get; set; }
-
-        [Display(Name = "Gender")]
         public string PATIENTGENDER { get; set; }
-
-        [Display(Name = "Phone No")]
         public string PATIENTMOBILENO { get; set; }
-
-        [Display(Name = "Date of birth")]
         public System.DateTime PATIENTDATEOFBIRTH { get; set; }
-
-        [Display(Name = "Address")]
         public string PATIENTADDRESS { get; set; }
-
-        [Display(Name = "Created by")]
         public string CREATEDBY { get; set; }
-
-        [Display(Name = "Created date")]
         public Nullable<System.DateTime> CREATEDDATE { get; set; }
-
-        [Display(Name = "Updated by")]
         public string UPDATEDBY { get; set; }
-
-        [Display(Name = "Updated date")]
         public Nullable<System.DateTime> UPDATEDDATE { get; set; }
-
         public bool DELETEDFLAG { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

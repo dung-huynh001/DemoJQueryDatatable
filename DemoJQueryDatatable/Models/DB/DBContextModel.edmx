@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DBContextModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="AppointmentSystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="APPOINTMENT">
           <Key>
             <PropertyRef Name="APPOIMENTNO" />
@@ -15,23 +15,23 @@
           <Property Name="DOCTORID" Type="int" Nullable="false" />
           <Property Name="WORKINGDAY" Type="date" Nullable="false" />
           <Property Name="CONSULTANTTYPEID" Type="int" Nullable="false" />
-          <Property Name="APPOINTMENTNAME" Type="varchar" MaxLength="256" Nullable="false" />
+          <Property Name="APPOINTMENTNAME" Type="nvarchar" MaxLength="256" Nullable="false" />
           <Property Name="DATEOFCONSULTATION" Type="datetime" Nullable="false" />
           <Property Name="APPOINTMENTDATE" Type="datetime" Nullable="false" />
-          <Property Name="APPOIMENTSTATUS" Type="varchar" MaxLength="256" Nullable="false" />
+          <Property Name="APPOIMENTSTATUS" Type="nvarchar" MaxLength="256" Nullable="false" />
           <Property Name="CLOSEDDATE" Type="datetime" />
-          <Property Name="CLOSEDBY" Type="varchar" MaxLength="256" />
-          <Property Name="SYMTOMS" Type="varchar" MaxLength="256" />
-          <Property Name="EXISTIONGILLNESS" Type="varchar" MaxLength="256" />
-          <Property Name="DRUGALLERGLES" Type="varchar" MaxLength="256" />
-          <Property Name="NOTE" Type="varchar" MaxLength="256" />
-          <Property Name="CASENOTE" Type="varchar" MaxLength="256" />
-          <Property Name="DIAGNOSIS" Type="varchar" MaxLength="256" />
-          <Property Name="ADVICETOPATIENT" Type="varchar" MaxLength="256" />
-          <Property Name="LABTESTS" Type="varchar" MaxLength="256" />
-          <Property Name="CREATEDBY" Type="varchar" MaxLength="50" />
+          <Property Name="CLOSEDBY" Type="nvarchar" MaxLength="256" />
+          <Property Name="SYMTOMS" Type="nvarchar" MaxLength="256" />
+          <Property Name="EXISTIONGILLNESS" Type="nvarchar" MaxLength="256" />
+          <Property Name="DRUGALLERGLES" Type="nvarchar" MaxLength="256" />
+          <Property Name="NOTE" Type="nvarchar" MaxLength="256" />
+          <Property Name="CASENOTE" Type="nvarchar" MaxLength="256" />
+          <Property Name="DIAGNOSIS" Type="nvarchar" MaxLength="256" />
+          <Property Name="ADVICETOPATIENT" Type="nvarchar" MaxLength="256" />
+          <Property Name="LABTESTS" Type="nvarchar" MaxLength="256" />
+          <Property Name="CREATEDBY" Type="nvarchar" MaxLength="50" />
           <Property Name="CREATEDDATE" Type="datetime" />
-          <Property Name="UPDATEDBY" Type="varchar" MaxLength="50" />
+          <Property Name="UPDATEDBY" Type="nvarchar" MaxLength="50" />
           <Property Name="UPDATEDDATE" Type="datetime" />
           <Property Name="DELETEDFLAG" Type="bit" Nullable="false" />
         </EntityType>
@@ -42,17 +42,17 @@
           </Key>
           <Property Name="PRECRIPTIONID" Type="int" Nullable="false" />
           <Property Name="APPOIMENTNO" Type="int" Nullable="false" />
-          <Property Name="NOTE" Type="varchar" MaxLength="256" />
+          <Property Name="NOTE" Type="nvarchar" MaxLength="256" />
         </EntityType>
         <EntityType Name="CONSULTANT_TYPE">
           <Key>
             <PropertyRef Name="CONSULTANTTYPEID" />
           </Key>
           <Property Name="CONSULTANTTYPEID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CONSULTANTTYPENAME" Type="char" MaxLength="256" Nullable="false" />
-          <Property Name="CREATEDBY" Type="varchar" MaxLength="50" />
+          <Property Name="CONSULTANTTYPENAME" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="CREATEDBY" Type="nvarchar" MaxLength="50" />
           <Property Name="CREATEDDATE" Type="datetime" />
-          <Property Name="UPDATEDBY" Type="varchar" MaxLength="50" />
+          <Property Name="UPDATEDBY" Type="nvarchar" MaxLength="50" />
           <Property Name="UPDATEDDATE" Type="datetime" />
           <Property Name="DELETEDFLAG" Type="bit" Nullable="false" />
         </EntityType>
@@ -61,10 +61,10 @@
             <PropertyRef Name="DEPARTMENTID" />
           </Key>
           <Property Name="DEPARTMENTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="DEPARTMENTNAME" Type="varchar" MaxLength="256" Nullable="false" />
-          <Property Name="CREATEDBY" Type="varchar" MaxLength="50" />
+          <Property Name="DEPARTMENTNAME" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="CREATEDBY" Type="nvarchar" MaxLength="50" />
           <Property Name="CREATEDDATE" Type="datetime" />
-          <Property Name="UPDATEDBY" Type="varchar" MaxLength="50" />
+          <Property Name="UPDATEDBY" Type="nvarchar" MaxLength="50" />
           <Property Name="UPDATEDDATE" Type="datetime" />
           <Property Name="DELETEDFLAG" Type="bit" Nullable="false" />
         </EntityType>
@@ -75,18 +75,18 @@
           <Property Name="DOCTORID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="USERID" Type="int" Nullable="false" />
           <Property Name="DEPARTMENTID" Type="int" Nullable="false" />
-          <Property Name="DOCTORNAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DOCTORNAME" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="DOCTORNATIONALID" Type="char" MaxLength="20" Nullable="false" />
-          <Property Name="DOCTORGENDER" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DOCTORGENDER" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="DOCTORDATEOFBIRTH" Type="date" Nullable="false" />
           <Property Name="DOCTORMOBILENO" Type="char" MaxLength="10" Nullable="false" />
-          <Property Name="DOCTORADDRESS" Type="varchar" MaxLength="256" Nullable="false" />
-          <Property Name="SPECIALITY" Type="varchar" MaxLength="256" Nullable="false" />
+          <Property Name="DOCTORADDRESS" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="SPECIALITY" Type="nvarchar" MaxLength="256" Nullable="false" />
           <Property Name="WORKINGSTARTDATE" Type="date" Nullable="false" />
           <Property Name="WORKINGENDDATE" Type="date" Nullable="false" />
-          <Property Name="CREATEDBY" Type="varchar" MaxLength="50" />
+          <Property Name="CREATEDBY" Type="nvarchar" MaxLength="50" />
           <Property Name="CREATEDDATE" Type="datetime" />
-          <Property Name="UPDATEDBY" Type="varchar" MaxLength="50" />
+          <Property Name="UPDATEDBY" Type="nvarchar" MaxLength="50" />
           <Property Name="UPDATEDDATE" Type="datetime" />
           <Property Name="DELETEDFLAG" Type="bit" Nullable="false" />
         </EntityType>
@@ -95,10 +95,10 @@
             <PropertyRef Name="MODE_ID" />
           </Key>
           <Property Name="MODE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="MODE_NAME" Type="varchar" MaxLength="256" Nullable="false" />
-          <Property Name="CREATEDBY" Type="varchar" MaxLength="50" />
+          <Property Name="MODE_NAME" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="CREATEDBY" Type="nvarchar" MaxLength="50" />
           <Property Name="CREATEDDATE" Type="datetime" />
-          <Property Name="UPDATEDBY" Type="varchar" MaxLength="50" />
+          <Property Name="UPDATEDBY" Type="nvarchar" MaxLength="50" />
           <Property Name="UPDATEDDATE" Type="datetime" />
           <Property Name="DELETEDFLAG" Type="bit" Nullable="false" />
         </EntityType>
@@ -108,15 +108,15 @@
           </Key>
           <Property Name="PATIENTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="USERID" Type="int" Nullable="false" />
-          <Property Name="PATIENTNAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PATIENTNAME" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="PATIENTNATIONALID" Type="char" MaxLength="20" Nullable="false" />
-          <Property Name="PATIENTGENDER" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="PATIENTGENDER" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="PATIENTMOBILENO" Type="char" MaxLength="10" Nullable="false" />
           <Property Name="PATIENTDATEOFBIRTH" Type="date" Nullable="false" />
           <Property Name="PATIENTADDRESS" Type="char" MaxLength="256" Nullable="false" />
-          <Property Name="CREATEDBY" Type="varchar" MaxLength="50" />
+          <Property Name="CREATEDBY" Type="nvarchar" MaxLength="50" />
           <Property Name="CREATEDDATE" Type="datetime" />
-          <Property Name="UPDATEDBY" Type="varchar" MaxLength="50" />
+          <Property Name="UPDATEDBY" Type="nvarchar" MaxLength="50" />
           <Property Name="UPDATEDDATE" Type="datetime" />
           <Property Name="DELETEDFLAG" Type="bit" Nullable="false" />
         </EntityType>
@@ -125,15 +125,15 @@
             <PropertyRef Name="PRECRIPTIONID" />
           </Key>
           <Property Name="PRECRIPTIONID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="DRUG" Type="varchar" MaxLength="256" Nullable="false" />
-          <Property Name="NOTE" Type="varchar" MaxLength="256" />
-          <Property Name="PATIENTNAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DRUG" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="NOTE" Type="nvarchar" MaxLength="256" />
+          <Property Name="PATIENTNAME" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="MEDICATIONDAYS" Type="int" Nullable="false" />
           <Property Name="QUANTITY" Type="int" Nullable="false" />
-          <Property Name="UNIT" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="CREATEDBY" Type="varchar" MaxLength="50" />
+          <Property Name="UNIT" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CREATEDBY" Type="nvarchar" MaxLength="50" />
           <Property Name="CREATEDDATE" Type="datetime" />
-          <Property Name="UPDATEDBY" Type="varchar" MaxLength="50" />
+          <Property Name="UPDATEDBY" Type="nvarchar" MaxLength="50" />
           <Property Name="UPDATEDDATE" Type="datetime" />
           <Property Name="DELETEDFLAG" Type="bit" Nullable="false" />
         </EntityType>
@@ -143,10 +143,10 @@
           </Key>
           <Property Name="QUALIFICATIONID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DOCTORID" Type="int" Nullable="false" />
-          <Property Name="QUALIFICATIONNAME" Type="varchar" MaxLength="256" Nullable="false" />
-          <Property Name="CREATEDBY" Type="varchar" MaxLength="50" />
+          <Property Name="QUALIFICATIONNAME" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="CREATEDBY" Type="nvarchar" MaxLength="50" />
           <Property Name="CREATEDDATE" Type="datetime" />
-          <Property Name="UPDATEDBY" Type="varchar" MaxLength="50" />
+          <Property Name="UPDATEDBY" Type="nvarchar" MaxLength="50" />
           <Property Name="UPDATEDDATE" Type="datetime" />
           <Property Name="DELETEDFLAG" Type="bit" Nullable="false" />
         </EntityType>
@@ -155,10 +155,10 @@
             <PropertyRef Name="ROLEID" />
           </Key>
           <Property Name="ROLEID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ROLENAME" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="CREATEDBY" Type="varchar" MaxLength="50" />
+          <Property Name="ROLENAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CREATEDBY" Type="nvarchar" MaxLength="50" />
           <Property Name="CREATEDDATE" Type="datetime" />
-          <Property Name="UPDATEDBY" Type="varchar" MaxLength="50" />
+          <Property Name="UPDATEDBY" Type="nvarchar" MaxLength="50" />
           <Property Name="UPDATEDDATE" Type="datetime" />
           <Property Name="DELETEDFLAG" Type="bit" Nullable="false" />
         </EntityType>
@@ -173,9 +173,9 @@
           <Property Name="BREAKTIME" Type="time" Precision="7" Nullable="false" />
           <Property Name="AVAILABLETIME" Type="time" Precision="7" Nullable="false" />
           <Property Name="CONSULTANTTIME" Type="time" Precision="7" Nullable="false" />
-          <Property Name="CREATEDBY" Type="varchar" MaxLength="50" />
+          <Property Name="CREATEDBY" Type="nvarchar" MaxLength="50" />
           <Property Name="CREATEDDATE" Type="datetime" />
-          <Property Name="UPDATEDBY" Type="varchar" MaxLength="50" />
+          <Property Name="UPDATEDBY" Type="nvarchar" MaxLength="50" />
           <Property Name="UPDATEDDATE" Type="datetime" />
           <Property Name="DELETEDFLAG" Type="bit" Nullable="false" />
         </EntityType>
@@ -189,16 +189,16 @@
           <Property Name="PASSWORDHASH" Type="char" MaxLength="256" Nullable="false" />
           <Property Name="EMAIL" Type="char" MaxLength="50" Nullable="false" />
           <Property Name="LASTLOGIN" Type="datetime" />
-          <Property Name="USERTYPE" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="USERTYPE" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="AVATARURL" Type="image" />
           <Property Name="PASSWORDRECOVERY1" Type="char" MaxLength="256" />
           <Property Name="PASSWORDRECOVERY2" Type="char" MaxLength="256" />
-          <Property Name="STATUS" Type="varchar" MaxLength="256" Nullable="false" />
+          <Property Name="STATUS" Type="nvarchar" MaxLength="256" Nullable="false" />
           <Property Name="LOGINRETRYCOUNT" Type="int" />
           <Property Name="LOGINLOCKDATE" Type="datetime" />
-          <Property Name="CREATEDBY" Type="varchar" MaxLength="50" />
+          <Property Name="CREATEDBY" Type="nvarchar" MaxLength="50" />
           <Property Name="CREATEDDATE" Type="datetime" />
-          <Property Name="UPDATEDBY" Type="varchar" MaxLength="50" />
+          <Property Name="UPDATEDBY" Type="nvarchar" MaxLength="50" />
           <Property Name="UPDATEDDATE" Type="datetime" />
           <Property Name="DELETEDFLAG" Type="bit" Nullable="false" />
         </EntityType>
@@ -348,7 +348,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DBContextModelStoreContainer">
+        <EntityContainer Name="AppointmentSystemModelStoreContainer">
           <EntitySet Name="APPOINTMENT" EntityType="Self.APPOINTMENT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="APPOINTMENT_NOTE" EntityType="Self.APPOINTMENT_NOTE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CONSULTANT_TYPE" EntityType="Self.CONSULTANT_TYPE" Schema="dbo" store:Type="Tables" />
@@ -414,7 +414,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="DBContextModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="AppointmentSystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="APPOINTMENT">
           <Key>
             <PropertyRef Name="APPOIMENTNO" />
@@ -425,23 +425,23 @@
           <Property Name="DOCTORID" Type="Int32" Nullable="false" />
           <Property Name="WORKINGDAY" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="CONSULTANTTYPEID" Type="Int32" Nullable="false" />
-          <Property Name="APPOINTMENTNAME" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="APPOINTMENTNAME" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DATEOFCONSULTATION" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="APPOINTMENTDATE" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="APPOIMENTSTATUS" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="APPOIMENTSTATUS" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CLOSEDDATE" Type="DateTime" Precision="3" />
-          <Property Name="CLOSEDBY" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
-          <Property Name="SYMTOMS" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
-          <Property Name="EXISTIONGILLNESS" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
-          <Property Name="DRUGALLERGLES" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
-          <Property Name="NOTE" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
-          <Property Name="CASENOTE" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
-          <Property Name="DIAGNOSIS" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
-          <Property Name="ADVICETOPATIENT" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
-          <Property Name="LABTESTS" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
-          <Property Name="CREATEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CLOSEDBY" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="SYMTOMS" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EXISTIONGILLNESS" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="DRUGALLERGLES" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="NOTE" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="CASENOTE" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="DIAGNOSIS" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="ADVICETOPATIENT" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="LABTESTS" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="CREATEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CREATEDDATE" Type="DateTime" Precision="3" />
-          <Property Name="UPDATEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="UPDATEDDATE" Type="DateTime" Precision="3" />
           <Property Name="DELETEDFLAG" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="APPOINTMENT_NOTE" Relationship="Self.FK_APPOINTM_RELATIONS_APPOINTM" FromRole="APPOINTMENT" ToRole="APPOINTMENT_NOTE" />
@@ -457,7 +457,7 @@
           </Key>
           <Property Name="PRECRIPTIONID" Type="Int32" Nullable="false" />
           <Property Name="APPOIMENTNO" Type="Int32" Nullable="false" />
-          <Property Name="NOTE" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="NOTE" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="APPOINTMENT" Relationship="Self.FK_APPOINTM_RELATIONS_APPOINTM" FromRole="APPOINTMENT_NOTE" ToRole="APPOINTMENT" />
           <NavigationProperty Name="PRESCRIPTION" Relationship="Self.FK_APPOINTM_RELATIONS_PRESCRIP" FromRole="APPOINTMENT_NOTE" ToRole="PRESCRIPTION" />
         </EntityType>
@@ -466,10 +466,10 @@
             <PropertyRef Name="CONSULTANTTYPEID" />
           </Key>
           <Property Name="CONSULTANTTYPEID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CONSULTANTTYPENAME" Type="String" MaxLength="256" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="CREATEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CONSULTANTTYPENAME" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CREATEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CREATEDDATE" Type="DateTime" Precision="3" />
-          <Property Name="UPDATEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="UPDATEDDATE" Type="DateTime" Precision="3" />
           <Property Name="DELETEDFLAG" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="APPOINTMENTs" Relationship="Self.FK_APPOINTM_RELATIONS_CONSULTA" FromRole="CONSULTANT_TYPE" ToRole="APPOINTMENT" />
@@ -479,10 +479,10 @@
             <PropertyRef Name="DEPARTMENTID" />
           </Key>
           <Property Name="DEPARTMENTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DEPARTMENTNAME" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="CREATEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DEPARTMENTNAME" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CREATEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CREATEDDATE" Type="DateTime" Precision="3" />
-          <Property Name="UPDATEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="UPDATEDDATE" Type="DateTime" Precision="3" />
           <Property Name="DELETEDFLAG" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="DOCTORs" Relationship="Self.FK_DOCTOR_RELATIONS_DEPARTME" FromRole="DEPARTMENT" ToRole="DOCTOR" />
@@ -494,18 +494,18 @@
           <Property Name="DOCTORID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="USERID" Type="Int32" Nullable="false" />
           <Property Name="DEPARTMENTID" Type="Int32" Nullable="false" />
-          <Property Name="DOCTORNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DOCTORNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DOCTORNATIONALID" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="DOCTORGENDER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DOCTORGENDER" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DOCTORDATEOFBIRTH" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="DOCTORMOBILENO" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="DOCTORADDRESS" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="SPECIALITY" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DOCTORADDRESS" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SPECIALITY" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="WORKINGSTARTDATE" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="WORKINGENDDATE" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="CREATEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CREATEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CREATEDDATE" Type="DateTime" Precision="3" />
-          <Property Name="UPDATEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="UPDATEDDATE" Type="DateTime" Precision="3" />
           <Property Name="DELETEDFLAG" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="DEPARTMENT" Relationship="Self.FK_DOCTOR_RELATIONS_DEPARTME" FromRole="DOCTOR" ToRole="DEPARTMENT" />
@@ -518,10 +518,10 @@
             <PropertyRef Name="MODE_ID" />
           </Key>
           <Property Name="MODE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MODE_NAME" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="CREATEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MODE_NAME" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CREATEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CREATEDDATE" Type="DateTime" Precision="3" />
-          <Property Name="UPDATEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="UPDATEDDATE" Type="DateTime" Precision="3" />
           <Property Name="DELETEDFLAG" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="APPOINTMENTs" Relationship="Self.FK_APPOINTM_RELATIONS_MODE_OF_" FromRole="MODE_OF_CONSULTING" ToRole="APPOINTMENT" />
@@ -532,15 +532,15 @@
           </Key>
           <Property Name="PATIENTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="USERID" Type="Int32" Nullable="false" />
-          <Property Name="PATIENTNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PATIENTNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="PATIENTNATIONALID" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="PATIENTGENDER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PATIENTGENDER" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="PATIENTMOBILENO" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="PATIENTDATEOFBIRTH" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="PATIENTADDRESS" Type="String" MaxLength="256" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="CREATEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CREATEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CREATEDDATE" Type="DateTime" Precision="3" />
-          <Property Name="UPDATEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="UPDATEDDATE" Type="DateTime" Precision="3" />
           <Property Name="DELETEDFLAG" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="APPOINTMENTs" Relationship="Self.FK_APPOINTM_RELATIONS_PATIENT" FromRole="PATIENT" ToRole="APPOINTMENT" />
@@ -551,15 +551,15 @@
             <PropertyRef Name="PRECRIPTIONID" />
           </Key>
           <Property Name="PRECRIPTIONID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DRUG" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="NOTE" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
-          <Property Name="PATIENTNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DRUG" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NOTE" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="PATIENTNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="MEDICATIONDAYS" Type="Int32" Nullable="false" />
           <Property Name="QUANTITY" Type="Int32" Nullable="false" />
-          <Property Name="UNIT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="CREATEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UNIT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CREATEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CREATEDDATE" Type="DateTime" Precision="3" />
-          <Property Name="UPDATEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="UPDATEDDATE" Type="DateTime" Precision="3" />
           <Property Name="DELETEDFLAG" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="APPOINTMENT_NOTE" Relationship="Self.FK_APPOINTM_RELATIONS_PRESCRIP" FromRole="PRESCRIPTION" ToRole="APPOINTMENT_NOTE" />
@@ -570,10 +570,10 @@
           </Key>
           <Property Name="QUALIFICATIONID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DOCTORID" Type="Int32" Nullable="false" />
-          <Property Name="QUALIFICATIONNAME" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="CREATEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="QUALIFICATIONNAME" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CREATEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CREATEDDATE" Type="DateTime" Precision="3" />
-          <Property Name="UPDATEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="UPDATEDDATE" Type="DateTime" Precision="3" />
           <Property Name="DELETEDFLAG" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="DOCTOR" Relationship="Self.FK_QUALIFIC_RELATIONS_DOCTOR" FromRole="QUALIFICATION" ToRole="DOCTOR" />
@@ -583,10 +583,10 @@
             <PropertyRef Name="ROLEID" />
           </Key>
           <Property Name="ROLEID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ROLENAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="CREATEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ROLENAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CREATEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CREATEDDATE" Type="DateTime" Precision="3" />
-          <Property Name="UPDATEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="UPDATEDDATE" Type="DateTime" Precision="3" />
           <Property Name="DELETEDFLAG" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="USERs" Relationship="Self.FK_USER_RELATIONS_ROLE" FromRole="ROLE" ToRole="USER" />
@@ -602,9 +602,9 @@
           <Property Name="BREAKTIME" Type="Time" Nullable="false" Precision="7" />
           <Property Name="AVAILABLETIME" Type="Time" Nullable="false" Precision="7" />
           <Property Name="CONSULTANTTIME" Type="Time" Nullable="false" Precision="7" />
-          <Property Name="CREATEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CREATEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CREATEDDATE" Type="DateTime" Precision="3" />
-          <Property Name="UPDATEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="UPDATEDDATE" Type="DateTime" Precision="3" />
           <Property Name="DELETEDFLAG" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="APPOINTMENTs" Relationship="Self.FK_APPOINTM_RELATIONS_SCHEDULE" FromRole="SCHEDULE" ToRole="APPOINTMENT" />
@@ -620,16 +620,16 @@
           <Property Name="PASSWORDHASH" Type="String" MaxLength="256" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="LASTLOGIN" Type="DateTime" Precision="3" />
-          <Property Name="USERTYPE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="USERTYPE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="AVATARURL" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="PASSWORDRECOVERY1" Type="String" MaxLength="256" FixedLength="true" Unicode="false" />
           <Property Name="PASSWORDRECOVERY2" Type="String" MaxLength="256" FixedLength="true" Unicode="false" />
-          <Property Name="STATUS" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="STATUS" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="LOGINRETRYCOUNT" Type="Int32" />
           <Property Name="LOGINLOCKDATE" Type="DateTime" Precision="3" />
-          <Property Name="CREATEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CREATEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CREATEDDATE" Type="DateTime" Precision="3" />
-          <Property Name="UPDATEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATEDBY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="UPDATEDDATE" Type="DateTime" Precision="3" />
           <Property Name="DELETEDFLAG" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="DOCTORs" Relationship="Self.FK_DOCTOR_RELATIONS_USER" FromRole="USER" ToRole="DOCTOR" />
@@ -849,9 +849,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DBContextModelStoreContainer" CdmEntityContainer="DBContext">
+        <EntityContainerMapping StorageEntityContainer="AppointmentSystemModelStoreContainer" CdmEntityContainer="DBContext">
           <EntitySetMapping Name="APPOINTMENTs">
-            <EntityTypeMapping TypeName="DBContextModel.APPOINTMENT">
+            <EntityTypeMapping TypeName="AppointmentSystemModel.APPOINTMENT">
               <MappingFragment StoreEntitySet="APPOINTMENT">
                 <ScalarProperty Name="APPOIMENTNO" ColumnName="APPOIMENTNO" />
                 <ScalarProperty Name="PATIENTID" ColumnName="PATIENTID" />
@@ -882,7 +882,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="APPOINTMENT_NOTE">
-            <EntityTypeMapping TypeName="DBContextModel.APPOINTMENT_NOTE">
+            <EntityTypeMapping TypeName="AppointmentSystemModel.APPOINTMENT_NOTE">
               <MappingFragment StoreEntitySet="APPOINTMENT_NOTE">
                 <ScalarProperty Name="PRECRIPTIONID" ColumnName="PRECRIPTIONID" />
                 <ScalarProperty Name="APPOIMENTNO" ColumnName="APPOIMENTNO" />
@@ -891,7 +891,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CONSULTANT_TYPE">
-            <EntityTypeMapping TypeName="DBContextModel.CONSULTANT_TYPE">
+            <EntityTypeMapping TypeName="AppointmentSystemModel.CONSULTANT_TYPE">
               <MappingFragment StoreEntitySet="CONSULTANT_TYPE">
                 <ScalarProperty Name="CONSULTANTTYPEID" ColumnName="CONSULTANTTYPEID" />
                 <ScalarProperty Name="CONSULTANTTYPENAME" ColumnName="CONSULTANTTYPENAME" />
@@ -904,7 +904,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DEPARTMENTs">
-            <EntityTypeMapping TypeName="DBContextModel.DEPARTMENT">
+            <EntityTypeMapping TypeName="AppointmentSystemModel.DEPARTMENT">
               <MappingFragment StoreEntitySet="DEPARTMENT">
                 <ScalarProperty Name="DEPARTMENTID" ColumnName="DEPARTMENTID" />
                 <ScalarProperty Name="DEPARTMENTNAME" ColumnName="DEPARTMENTNAME" />
@@ -917,7 +917,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DOCTORs">
-            <EntityTypeMapping TypeName="DBContextModel.DOCTOR">
+            <EntityTypeMapping TypeName="AppointmentSystemModel.DOCTOR">
               <MappingFragment StoreEntitySet="DOCTOR">
                 <ScalarProperty Name="DOCTORID" ColumnName="DOCTORID" />
                 <ScalarProperty Name="USERID" ColumnName="USERID" />
@@ -940,7 +940,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MODE_OF_CONSULTING">
-            <EntityTypeMapping TypeName="DBContextModel.MODE_OF_CONSULTING">
+            <EntityTypeMapping TypeName="AppointmentSystemModel.MODE_OF_CONSULTING">
               <MappingFragment StoreEntitySet="MODE_OF_CONSULTING">
                 <ScalarProperty Name="MODE_ID" ColumnName="MODE_ID" />
                 <ScalarProperty Name="MODE_NAME" ColumnName="MODE_NAME" />
@@ -953,7 +953,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PATIENTs">
-            <EntityTypeMapping TypeName="DBContextModel.PATIENT">
+            <EntityTypeMapping TypeName="AppointmentSystemModel.PATIENT">
               <MappingFragment StoreEntitySet="PATIENT">
                 <ScalarProperty Name="PATIENTID" ColumnName="PATIENTID" />
                 <ScalarProperty Name="USERID" ColumnName="USERID" />
@@ -972,7 +972,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PRESCRIPTIONs">
-            <EntityTypeMapping TypeName="DBContextModel.PRESCRIPTION">
+            <EntityTypeMapping TypeName="AppointmentSystemModel.PRESCRIPTION">
               <MappingFragment StoreEntitySet="PRESCRIPTION">
                 <ScalarProperty Name="PRECRIPTIONID" ColumnName="PRECRIPTIONID" />
                 <ScalarProperty Name="DRUG" ColumnName="DRUG" />
@@ -990,7 +990,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="QUALIFICATIONs">
-            <EntityTypeMapping TypeName="DBContextModel.QUALIFICATION">
+            <EntityTypeMapping TypeName="AppointmentSystemModel.QUALIFICATION">
               <MappingFragment StoreEntitySet="QUALIFICATION">
                 <ScalarProperty Name="QUALIFICATIONID" ColumnName="QUALIFICATIONID" />
                 <ScalarProperty Name="DOCTORID" ColumnName="DOCTORID" />
@@ -1004,7 +1004,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ROLEs">
-            <EntityTypeMapping TypeName="DBContextModel.ROLE">
+            <EntityTypeMapping TypeName="AppointmentSystemModel.ROLE">
               <MappingFragment StoreEntitySet="ROLE">
                 <ScalarProperty Name="ROLEID" ColumnName="ROLEID" />
                 <ScalarProperty Name="ROLENAME" ColumnName="ROLENAME" />
@@ -1017,7 +1017,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SCHEDULEs">
-            <EntityTypeMapping TypeName="DBContextModel.SCHEDULE">
+            <EntityTypeMapping TypeName="AppointmentSystemModel.SCHEDULE">
               <MappingFragment StoreEntitySet="SCHEDULE">
                 <ScalarProperty Name="DOCTORID" ColumnName="DOCTORID" />
                 <ScalarProperty Name="WORKINGDAY" ColumnName="WORKINGDAY" />
@@ -1034,7 +1034,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="USERs">
-            <EntityTypeMapping TypeName="DBContextModel.USER">
+            <EntityTypeMapping TypeName="AppointmentSystemModel.USER">
               <MappingFragment StoreEntitySet="USER">
                 <ScalarProperty Name="USERID" ColumnName="USERID" />
                 <ScalarProperty Name="ROLEID" ColumnName="ROLEID" />
