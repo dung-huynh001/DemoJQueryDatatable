@@ -58,6 +58,7 @@ namespace DemoJQueryDatatable.Models
             return _context.DEPARTMENTs.Where(c => c.DEPARTMENTID.Equals(departmentID)).FirstOrDefault();      
         }
 
+        // Edit
         public void EditDepartment(string id, string name)
         {
             DEPARTMENT department = GetDepartment(id.ToString());
